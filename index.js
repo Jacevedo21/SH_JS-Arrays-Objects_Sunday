@@ -158,7 +158,7 @@ const sum1 = [1, 2, 3, 4, 5]
 const sum2 = [2, 7, 34, 6, 23, 74, 56, 234, 6747, 3, 12452, 0]
 
 function sumArray(arr) {
-  // let sum = 0
+  // let sum = 0 
   // for (let i = 0; i < arr.length; i++) {
   //   sum += arr[i]
   // }
@@ -166,10 +166,10 @@ function sumArray(arr) {
   // return sum
 
   // let total = arr.reduce((acc, curr) => acc + curr)
-  // let totalFunc = arr.reduce(function (acc, curr) { return acc + curr })
+  let totalFunc = arr.reduce(function (acc, curr) { return acc + curr })
   return totalFunc
 }
-// console.log('Sum of Array --> ', sumArray(sum1))
+console.log('Sum of Array --> ', sumArray(sum1))
 
 
 
@@ -451,4 +451,4 @@ function randomize(arr) {
   return randomized
 }
 
-console.log('Randomized --> ', randomize(random1))
+// console.log('Randomized --> ', randomize(random1))
