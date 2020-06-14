@@ -6,11 +6,11 @@
 const books = ['Ariel', 'blink', 'salt', 'crucial conversations', 'Strong Motion', 'At Home']
 // ? Console log 'Strong Motion' from the books array.
 
-
+// console.log(books[4])
 
 const numbers = [5, 2, 3, [6, 34], 23]
 // ? Console.log 34 from the numbers array.
-
+// console.log(numbers[3][1])
 
 /* -------------------------------------------------------------------------- */
 /*                         Objects: What is an Object?                        */
@@ -22,13 +22,15 @@ const people = [
   { name: 'Daniel', hobbies: ['writing', 'reading poetry'], petName: 'Monty', 'favorite dish': 'everything' }
 ]
 // ? Console log Stephanie's pet snake's name
-// console.log("Stephanie's Snake's Name --> ", )
+// console.log("Stephanie's Snake's Name --> ", people[1].petName)
+
 
 // ? Console log Randall's favorite dish
-// console.log("Randall's Favorite Dish --> ", )
+// console.log("Randall's Favorite Dish --> ", people[0]['favorite dish'])
+
 
 // ? Console log Daniel's second favorite hobby
-// console.log("Daniel's Second Hobby --> ", )
+// console.log("Daniel's Second Hobby --> ", people[2].hobbies[1])
 
 
 /* -------------------------------------------------------------------------- */
@@ -36,6 +38,7 @@ const people = [
 /* -------------------------------------------------------------------------- */
 
 // ? Create a function called multiply that takes in two parameters: arr and num
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -46,6 +49,17 @@ const people = [
 
 const multiplyThese = [6, 34, 25, 4, 67, 345, 124, 976]
 
+function multiply(arr, num) {
+  let multiplied = []
+  for (let i = 0; i < arr.length; i++) {
+    // multiplied.push(arr[i] * num)
+    // arr[i] = arr[i] * num
+    arr[i] *= num
+  }
+  return arr
+}
+
+// console.log('Multiply this --> ', multiply(multiplyThese, 2))
 
 
 /* -------------------------------------------------------------------------- */
@@ -54,6 +68,13 @@ const multiplyThese = [6, 34, 25, 4, 67, 345, 124, 976]
 // ? Use method chaining to split, alphabetize and console log length of the following String
 
 let dougLinder = "A good programmer is someone who looks both ways before crossing a one-way street."
+
+// let splitArray = dougLinder.split(' ')
+// let inOrder = splitArray.sort()
+// let length = inOrder.length
+
+let chain = dougLinder.split(' ').sort().length
+// console.log(chain)
 // console.log(dougLinder)
 
 
@@ -63,15 +84,21 @@ let dougLinder = "A good programmer is someone who looks both ways before crossi
 
 
 const check1 = [1, 2, 3, 4, 5]
-const check2 = [1, 1, 2, 1, 1]
-const check3 = [[5, 5, [5], 6], 5]
+const check2 = [1, [3, 6, [3], 5], 1]
 
 function check(arr, num) {
   // HINT: If you plan on using the for-loop, "concatenate" the nested arrays
+  const flatten = arr.flat(Infinity)
 
-  return arr
+  for (let i = 0; i < flatten.length; i++) {
+    if (flatten[i] === num) {
+      return true
+    }
+  }
+  return false
+
 }
-// console.log('Array Contains Given Number --> ', check(check3, 5))
+// console.log('Array Contains Given Number --> ', check(check2, 3))
 
 
 /* -------------------------------------------------------------------------- */
@@ -79,9 +106,28 @@ function check(arr, num) {
 /* -------------------------------------------------------------------------- */
 
 function monthName(num) {
-  return num
+  // num -= 1
+  // const months = ['January', 'February', 'March', 'April', 'May', 'June']
+  switch (num) {
+    case 1:
+      return 'January'
+    case 2:
+      return 'February'
+    case 3:
+      return 'March'
+    case 4:
+      return 'April'
+    case 5:
+      return 'May'
+    case 6:
+      return 'June'
+    default:
+      return "Doesn't exist"
+  }
+
+  // return months[num]
 }
-// console.log('Corresponding Month Name --> ', monthName(2))
+// console.log('Corresponding Month Name --> ', monthName(15))
 
 
 /* -------------------------------------------------------------------------- */
@@ -107,6 +153,7 @@ function sumArray(arr) {
   return arr
 }
 // console.log('Sum of Array --> ', sumArray(sum1))
+
 
 
 
@@ -332,7 +379,6 @@ const budget1 = [
 
 
 function getBudgets(arr) {
-
   return arr
 }
 
