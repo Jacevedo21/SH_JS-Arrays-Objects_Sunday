@@ -137,7 +137,15 @@ function monthName(num) {
 const strArr1 = ['copy', 'read', 'cook']
 
 function addEnding(arr, str) {
-  return arr
+  // let newWords = []
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   // newWords.push(arr[i] + str)
+  //   arr[i] += str
+  // }
+  return arr.map(word => `${word + str}`)
+  // return arr.map(function (word) { return `${word + str}` })
+
 }
 // console.log('Add Ending --> ', addEnding(strArr1, 'ing'))
 
@@ -150,10 +158,18 @@ const sum1 = [1, 2, 3, 4, 5]
 const sum2 = [2, 7, 34, 6, 23, 74, 56, 234, 6747, 3, 12452, 0]
 
 function sumArray(arr) {
-  return arr
+  // let sum = 0
+  // for (let i = 0; i < arr.length; i++) {
+  //   sum += arr[i]
+  // }
+  // console.log(typeof sum)
+  // return sum
+
+  // let total = arr.reduce((acc, curr) => acc + curr)
+  // let totalFunc = arr.reduce(function (acc, curr) { return acc + curr })
+  return totalFunc
 }
 // console.log('Sum of Array --> ', sumArray(sum1))
-
 
 
 
@@ -246,7 +262,7 @@ const artists = [
   {
     "id": 8,
     "name": "Vincent van Dough",
-    "years": "1853 – 1890",
+    "years": "1853 - 1890",
     "genre": "Post-Impressionism",
     "nationality": "Dutch",
     "bio": "Vincent Willem van Gogh (Dutch: [ˈvɪnsɛnt ˈʋɪləm vɑŋ ˈɣɔx] (listen); 30 March 1853 – 29 July 1890) was a Dutch Post-Impressionist painter who is among the most famous and influential figures in the history of Western art. In just over a decade he created about 2,100 artworks, including around 860 oil paintings, most of them in the last two years of his life. They include landscapes, still lifes, portraits and self-portraits, and are characterised by bold colours and dramatic, impulsive and expressive brushwork that contributed to the foundations of modern art. However, he was not commercially successful, and his suicide at 37 followed years of mental illness and poverty.",
@@ -365,6 +381,26 @@ const artists = [
   }
 ]
 
+function get20s(arr) {
+  // let years = []
+  let _20thCentury = []
+  // for (let i = 0; i < arr.length; i++) {
+  //   years.push(arr[i].years.split(' - '))
+  //   if (years[i][0] > 1900 || (years[i][0] > 1900 && years[i][1] < 2000)) {
+  //     _20thCentury.push(arr[i].name)
+  //   }
+  // }
+  // // console.log(years)
+  // return _20thCentury
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].years.includes(19)) {
+      _20thCentury.push(arr[i].name)
+    }
+  }
+  return _20thCentury
+}
+
+// console.log(get20s(artists))
 
 
 /* -------------------------------------------------------------------------- */
@@ -379,7 +415,16 @@ const budget1 = [
 
 
 function getBudgets(arr) {
-  return arr
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].budget
+  }
+
+  let reduced = arr.reduce((acc, curr) => acc + curr.budget, 0)
+  return reduced
+
+  // arr.filter(acct => sum + acct.budget)
+  // return sum
 }
 
 // console.log('Get Budgets --> ', getBudgets(budget1))
@@ -394,7 +439,16 @@ function getBudgets(arr) {
 const random1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 function randomize(arr) {
-  return arr
+  let randomized = []
+  let index
+  let length = arr.length // 9
+  for (let i = 0; i < length; i++) {
+    index = Math.floor(Math.random() * (arr.length - 0) + 0)
+    randomized.push(arr[index])
+    arr.splice(index, 1)
+  }
+  // 
+  return randomized
 }
 
-// console.log('Randomized --> ', randomize(random1))
+console.log('Randomized --> ', randomize(random1))
